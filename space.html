@@ -65,17 +65,17 @@ a{text-decoration:none;color:inherit}
 .linefab{position:fixed;right:16px;bottom:92px;width:54px;height:54px;background:#06C755;border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(6,199,85,.4);color:#fff;font-size:12px;font-weight:900;z-index:30}
 .proto{background:var(--gold);color:#241E12;text-align:center;font-size:11px;font-weight:800;padding:5px}
 </style></head><body>
-<div class="proto">模擬版・假資料示意，可實際操作流程</div><div class="topbar"><a class="back" href="index.html">‹ 返回</a><div class="loc">台北・北車</div></div>
+<div class="proto">模擬版・假資料示意，可實際操作流程</div><div class="topbar"><a class="back" href="index.html">‹ 返回</a><div class="loc">台北・中山區</div></div>
 <div id="app"></div>
 <script>
-const SP={"vip1":{"nm":"VIP 1・沙發床房","cap":"2-4 人","price":300,"c1":"#9A8C76","c2":"#6E6253","amen":["折疊沙發床", "獨立門・隱私", "WiFi", "冷氣", "儲物櫃", "吧台共用"],"desc":"本店最大、唯一有獨立門的私密空間。放置灰橘色折疊沙發床（200×100），可坐可躺，適合諮詢、教學、雙人作業或想要更隱密的療程。"},"a":{"nm":"美容房 A","cap":"1-2 人","price":200,"c1":"#A99272","c2":"#7C654A","amen":["電動升降美容床", "可升降・加熱", "環形燈", "彩妝鏡", "WiFi", "冷熱水"],"desc":"黑鐵框＋白紗簾的工業風隔間，配置電動升降美容床（S 型升降・有加熱），環形燈＋彩妝鏡齊全，做臉、霧眉、美睫、采妝都合適。"},"b":{"nm":"美容房 B","cap":"1-2 人","price":200,"c1":"#5E6E48","c2":"#3C4A2C","amen":["電動升降美容床", "可升降・加熱", "環形燈", "WiFi", "冷氣", "延長線"],"desc":"與美容房 A 同款配置的工業風獨立隔間，電動升降美容床（S 型升降・有加熱），安靜不互相干擾，適合單人接客。"}};
+const SP={"vip1":{"nm":"VIP 1・沙發床房","cap":"2-4 人","price":300,"c1":"#9A8C76","c2":"#6E6253","amen":["折疊沙發床", "獨立門・隱私", "WiFi", "冷氣", "儲物櫃", "吧台共用"],"desc":"本店最大、唯一有獨立門的私密空間。放置灰橘色折疊沙發床（200×100），可坐可躺，適合諮詢、教學、雙人作業或想要更隱密的療程。"},"a":{"nm":"美容房 A","cap":"1-2 人","price":200,"c1":"#A99272","c2":"#7C654A","amen":["電動升降美容床", "可升降・加熱", "立燈", "美容車", "WiFi", "冷熱水"],"desc":"黑鐵框＋白紗簾的工業風隔間，配置電動升降美容床（S 型升降・有加熱），立燈＋美容車齊全，做臉、霧眉、美睫、采妝都合適。"},"b":{"nm":"美容房 B","cap":"1-2 人","price":200,"c1":"#5E6E48","c2":"#3C4A2C","amen":["電動升降美容床", "可升降・加熱", "立燈", "美容車", "WiFi", "冷氣"],"desc":"與美容房 A 同款配置的工業風獨立隔間，電動升降美容床（S 型升降・有加熱），安靜不互相干擾，適合單人接客。"}};
 const id=new URLSearchParams(location.search).get("id")||"vip1";const s=SP[id];
 const amen=s.amen.map(a=>`<span class="chip">${a}</span>`).join("");
 document.getElementById("app").innerHTML=`
 <div class="gallery" style="background:linear-gradient(135deg,${s.c1},${s.c2})">
   <div class="gcell">實景照 1</div><div class="gcell" style="background:rgba(0,0,0,.12)">實景照 2</div><div class="gcell">實景照 3</div></div>
 <div class="sec" style="margin-top:16px"><div class="crow"><div class="cnm" style="font-size:21px">${s.nm}</div><div class="cprice" style="font-size:23px">NT$${s.price}<span>/小時</span></div></div>
-<div class="cloc" style="margin-top:6px">台北・北車　·　可容 ${s.cap}　·　即時可訂</div>
+<div class="cloc" style="margin-top:6px">台北・中山區　·　可容 ${s.cap}　·　即時可訂</div>
 <div class="chips" style="margin-top:14px">${amen}</div>
 <div class="desc" style="margin-top:16px">${s.desc}</div>
 <div style="height:90px"></div></div>
