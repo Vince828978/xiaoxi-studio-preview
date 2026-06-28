@@ -1,0 +1,92 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>選時段・小憩 TAKE A BREATH</title><style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+:root{--gold:#B89150;--iron:#22241F;--green:#374829;--green1:#46583B}
+body{max-width:480px;margin:0 auto;background:#E7E3DC;font-family:-apple-system,"PingFang TC","Noto Sans TC",sans-serif;color:#1C1E1A;min-height:100vh;padding-bottom:80px}
+a{text-decoration:none;color:inherit}
+.topbar{background:var(--iron);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:20}
+.brand{display:flex;align-items:center;gap:8px}
+.brand .lf{width:20px;height:20px}
+.brand .bz{font-size:21px;font-weight:900;letter-spacing:4px;color:#F4F1EA}
+.brand .en{font-size:8.5px;font-weight:700;color:var(--gold);letter-spacing:3px;margin-top:2px}
+.back{color:#E7E3DC;font-size:14px;font-weight:700;display:flex;align-items:center;gap:5px}
+.loc{font-size:12px;font-weight:700;color:#E7E3DC;border:1px solid #4A4C44;padding:6px 10px;border-radius:4px}
+.hero{background:linear-gradient(120deg,#2B2E27,#3C4A2C);padding:22px 20px 24px;position:relative}
+.hero:after{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--gold)}
+.hero h1{font-size:22px;font-weight:900;line-height:1.4;color:#F4F1EA;letter-spacing:1px}
+.hero p{font-size:12.5px;color:#D7D2C5;margin-top:8px;line-height:1.6}
+.sec{margin:20px 16px 0}
+.sect{font-size:15.5px;font-weight:900;margin:0 2px 12px;display:flex;align-items:center;letter-spacing:1px}
+.sect:before{content:"";display:inline-block;width:16px;height:3px;background:var(--gold);margin-right:8px}
+.card{background:#FBFAF7;border:1.5px solid var(--iron);border-radius:8px;overflow:hidden;margin-bottom:15px;box-shadow:4px 4px 0 rgba(34,36,31,.12);display:block}
+.photo{height:175px;position:relative;display:flex;align-items:center;justify-content:center}
+.phl{font-size:13px;font-weight:700;color:rgba(255,255,255,.92);letter-spacing:1px}
+.cap{position:absolute;left:12px;top:12px;background:var(--iron);color:#F4F1EA;font-size:11px;font-weight:800;padding:4px 10px;border-radius:4px}
+.cbody{padding:14px 15px}
+.crow{display:flex;align-items:flex-end;justify-content:space-between}
+.cnm{font-size:16.5px;font-weight:900;letter-spacing:.5px}
+.cprice{font-size:19px;font-weight:900;color:var(--green)}.cprice span{font-size:11px;font-weight:700;color:#736E63}
+.cloc{font-size:12px;color:#736E63;margin-top:5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.chip{font-size:11px;font-weight:700;color:var(--green1);background:#ECEDE5;border:1px solid #D7DAC9;padding:4px 9px;border-radius:4px}
+.btn{display:block;text-align:center;background:var(--iron);color:#F4F1EA;font-size:15px;font-weight:800;padding:14px;border-radius:6px;letter-spacing:2px;border:0;width:100%;cursor:pointer}
+.btn.gold{background:var(--gold);color:#241E12}
+.btn.green{background:var(--green)}
+.fixbar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);max-width:480px;width:100%;background:#FBFAF7;border-top:1.5px solid var(--iron);padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
+.gallery{display:flex;gap:0;height:230px}
+.gcell{flex:1;display:flex;align-items:flex-end;padding:8px;color:#fff;font-size:11px;font-weight:700}
+.kv{display:flex;justify-content:space-between;font-size:14px;padding:11px 0;border-bottom:1px solid #E0DCD2}
+.kv b{font-weight:800} .kv .g{color:var(--green);font-weight:900;font-size:17px}
+.desc{font-size:13.5px;line-height:1.8;color:#3A3A33;margin-top:6px}
+.dates{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px}
+.date{flex:none;width:60px;text-align:center;border:1.5px solid #CFC9BC;border-radius:8px;padding:9px 0;background:#FBFAF7;cursor:pointer}
+.date.on{border-color:var(--iron);background:var(--iron);color:#F4F1EA}
+.date .d1{font-size:11px;font-weight:700} .date .d2{font-size:17px;font-weight:900;margin-top:2px}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.slot{text-align:center;border:1.5px solid #CFC9BC;border-radius:7px;padding:11px 0;font-size:14px;font-weight:800;background:#FBFAF7;cursor:pointer}
+.slot.on{border-color:var(--green);background:var(--green);color:#fff}
+.slot.taken{background:#E7E3DC;color:#B3AEA2;border-color:#DAD5C9;text-decoration:line-through;cursor:not-allowed}
+.field{margin-top:14px}
+.field label{font-size:13px;font-weight:800;display:block;margin-bottom:6px}
+.field input,.field textarea{width:100%;border:1.5px solid #CFC9BC;border-radius:7px;padding:12px;font-size:15px;background:#FBFAF7;font-family:inherit}
+.pay{border:1.5px solid #CFC9BC;border-radius:8px;padding:15px;margin-top:12px;cursor:pointer;display:flex;align-items:center;gap:12px;background:#FBFAF7}
+.pay.on{border-color:var(--iron);box-shadow:0 0 0 2px var(--iron)}
+.pay .ic{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff}
+.pay .t{flex:1} .pay .t b{font-size:15px;font-weight:900} .pay .t small{font-size:12px;color:#736E63;display:block;margin-top:2px}
+.bankbox{background:#F2EFE7;border:1px dashed #B7B0A0;border-radius:8px;padding:14px;margin-top:12px;font-size:13.5px;line-height:1.9}
+.bankbox b{font-weight:900}
+.note{font-size:12px;color:#736E63;text-align:center;margin:16px;line-height:1.7}
+.donewrap{text-align:center;padding:40px 24px 10px}
+.check{width:74px;height:74px;border-radius:50%;background:var(--green);color:#fff;font-size:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.pwd{font-size:34px;font-weight:900;letter-spacing:10px;color:var(--iron);background:#FBFAF7;border:2px solid var(--iron);border-radius:10px;padding:16px;margin:16px 0;text-align:center}
+.summary{background:#FBFAF7;border:1.5px solid var(--iron);border-radius:8px;padding:14px 16px;margin:0 16px}
+.line{display:flex;align-items:center;justify-content:center;gap:8px;background:#06C755;color:#fff;font-size:15px;font-weight:900;padding:14px;border-radius:8px}
+.linefab{position:fixed;right:16px;bottom:92px;width:54px;height:54px;background:#06C755;border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(6,199,85,.4);color:#fff;font-size:12px;font-weight:900;z-index:30}
+.proto{background:var(--gold);color:#241E12;text-align:center;font-size:11px;font-weight:800;padding:5px}
+</style></head><body>
+<div class="proto">模擬版・假資料示意，可實際操作流程</div><div class="topbar"><a class="back" href="space.html">‹ 返回</a><div class="loc">台北・北車</div></div>
+<div class="sec"><div class="sect">選擇日期</div><div class="dates" id="dates"></div></div>
+<div class="sec"><div class="sect">選擇時段（每格 1 小時）</div><div class="slots" id="slots"></div>
+<div class="note" style="text-align:left;margin:12px 2px">灰色刪除線＝已被預約。連續點選多格＝租多小時。</div></div>
+<div style="height:90px"></div>
+<div class="fixbar"><a class="btn" id="next" style="opacity:.45;pointer-events:none">請先選時段</a></div>
+<script>
+const id=new URLSearchParams(location.search).get("id")||"vip1";
+const dd=document.getElementById("dates");const wk=["日","一","二","三","四","五","六"];
+const today=new Date();let selDate=0;
+for(let i=0;i<7;i++){const d=new Date(today.getTime()+i*864e5);
+ const el=document.createElement("div");el.className="date"+(i==0?" on":"");
+ el.innerHTML=`<div class="d1">${i==0?"今天":"週"+wk[d.getDay()]}</div><div class="d2">${d.getDate()}</div>`;
+ el.onclick=()=>{document.querySelectorAll(".date").forEach(x=>x.classList.remove("on"));el.classList.add("on");selDate=i;render();};dd.appendChild(el);}
+const taken={0:["11:00","14:00","15:00","19:00"],1:["10:00","13:00"],2:["16:00","17:00","18:00"]};
+let sel=[];
+function render(){sel=[];upd();const g=document.getElementById("slots");g.innerHTML="";
+ for(let h=9;h<=21;h++){const t=(h<10?"0":"")+h+":00";const tk=(taken[selDate]||[]).includes(t);
+  const el=document.createElement("div");el.className="slot"+(tk?" taken":"");el.textContent=t;
+  if(!tk)el.onclick=()=>{el.classList.toggle("on");const i=sel.indexOf(t);i>=0?sel.splice(i,1):sel.push(t);upd();};g.appendChild(el);}}
+function upd(){const n=document.getElementById("next");if(sel.length){sel.sort();n.style.opacity=1;n.style.pointerEvents="auto";
+  n.textContent=`已選 ${sel.length} 小時・下一步`;n.href=`info.html?id=${id}&n=${sel.length}&t=${sel[0]}`;}else{n.style.opacity=.45;n.style.pointerEvents="none";n.textContent="請先選時段";}}
+render();
+</script>
+<a class="linefab" href="https://lin.ee/VJ9huTD">LINE</a></body></html>
