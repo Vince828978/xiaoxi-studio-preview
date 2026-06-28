@@ -79,7 +79,7 @@ a{text-decoration:none;color:inherit}
 <div class="fixbar"><a class="btn gold" href="done.html">確認・送出預約</a></div>
 <script>
 const p=new URLSearchParams(location.search);const id=p.get("id")||"a";const n=+(p.get("n")||2);const t=p.get("t")||"14:00";
-const NM={vip1:"VIP 1・沙發床房",a:"美容房 A",b:"美容房 B"};const PR={vip1:300,a:200,b:200};
+const NM={vip1:"VIP 1・沙發床房",a:"美容房 A",b:"美容房 B"};const PR={vip1:400,a:300,b:300};
 sp.textContent=NM[id];tm.textContent="今天 "+t+" 起";hr.textContent=n+" 小時";amt.textContent="NT$"+(PR[id]*n);
 function pick(x){p1.classList.toggle("on",x=="p1");p2.classList.toggle("on",x=="p2");r1.textContent=x=="p1"?"●":"";r2.textContent=x=="p2"?"●":"";bank.style.display=x=="p2"?"block":"none";}
 </script>

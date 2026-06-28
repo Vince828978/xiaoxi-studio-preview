@@ -84,17 +84,17 @@ def topbar(back=None):
     return f'<div class="topbar">{left}<div class="loc">台北・中山區</div></div>'
 
 SPACES={
- "vip1":dict(nm="VIP 1・沙發床房",cap="2-4 人",price=300,c1="#9A8C76",c2="#6E6253",
+ "vip1":dict(nm="VIP 1・沙發床房",cap="2-4 人",price=400,c1="#9A8C76",c2="#6E6253",
    amen=["折疊沙發床","獨立門・隱私","WiFi","冷氣","儲物櫃","吧台共用"],
    desc="本店最大、唯一有獨立門的私密空間。放置灰橘色折疊沙發床（200×100），可坐可躺，適合諮詢、教學、雙人作業或想要更隱密的療程。"),
- "a":dict(nm="美容房 A",cap="1-2 人",price=200,c1="#A99272",c2="#7C654A",
+ "a":dict(nm="美容房 A",cap="1-2 人",price=300,c1="#A99272",c2="#7C654A",
    amen=["電動升降美容床","可升降・加熱","立燈","美容車","WiFi","冷熱水"],
    desc="黑鐵框＋白紗簾的工業風隔間，配置電動升降美容床（S 型升降・有加熱），立燈＋美容車齊全，做臉、霧眉、美睫、采妝都合適。"),
- "b":dict(nm="美容房 B",cap="1-2 人",price=200,c1="#5E6E48",c2="#3C4A2C",
+ "b":dict(nm="美容房 B",cap="1-2 人",price=300,c1="#5E6E48",c2="#3C4A2C",
    amen=["電動升降美容床","可升降・加熱","立燈","美容車","WiFi","冷氣"],
    desc="與美容房 A 同款配置的工業風獨立隔間，電動升降美容床（S 型升降・有加熱），安靜不互相干擾，適合單人接客。"),
 }
-TIERS=[("2 小時","NT$300"),("3 小時","NT$450"),("半日 5H","NT$700"),("全日 8H","NT$1000")]
+TIERS=[("2 小時","NT$400"),("3 小時","NT$550"),("半日 5H","NT$800"),("全日 8H","NT$1100")]
 
 # ---------- index ----------
 cards=""
@@ -188,7 +188,7 @@ pay=head("付款")+topbar(back="info.html")+f'''
 <div class="fixbar"><a class="btn gold" href="done.html">確認・送出預約</a></div>
 <script>
 const p=new URLSearchParams(location.search);const id=p.get("id")||"a";const n=+(p.get("n")||2);const t=p.get("t")||"14:00";
-const NM={{vip1:"VIP 1・沙發床房",a:"美容房 A",b:"美容房 B"}};const PR={{vip1:300,a:200,b:200}};
+const NM={{vip1:"VIP 1・沙發床房",a:"美容房 A",b:"美容房 B"}};const PR={{vip1:400,a:300,b:300}};
 sp.textContent=NM[id];tm.textContent="今天 "+t+" 起";hr.textContent=n+" 小時";amt.textContent="NT$"+(PR[id]*n);
 function pick(x){{p1.classList.toggle("on",x=="p1");p2.classList.toggle("on",x=="p2");r1.textContent=x=="p1"?"●":"";r2.textContent=x=="p2"?"●":"";bank.style.display=x=="p2"?"block":"none";}}
 </script>
@@ -203,7 +203,7 @@ done=head("預約完成")+topbar()+f'''
 <div style="font-size:12px;color:#736E63">到場輸入此密碼開門，自助進場</div></div>
 <div class="summary" style="margin-top:6px"><div class="kv"><span>空間</span><b>美容房 A</b></div>
 <div class="kv"><span>時段</span><b>今天 14:00–16:00</b></div>
-<div class="kv" style="border:0"><span>金額</span><span class="g">NT$400・LINE Pay 已付</span></div></div>
+<div class="kv" style="border:0"><span>金額</span><span class="g">NT$600・LINE Pay 已付</span></div></div>
 <div class="sec"><a class="line" href="{LINE_URL}">有問題？加 LINE 直接問我們</a>
 <a class="btn" href="index.html" style="margin-top:12px;background:#fff;color:var(--iron);border:1.5px solid var(--iron)">回首頁</a></div>
 <div class="note">這是模擬完成頁。正式版：匯款者付款待你後台確認後才放行密碼。</div>
